@@ -1,22 +1,3 @@
-#include<iostream>
-using namespace std;
-
-void min(int[],int,int);
-void verifyDirection(int [],int,int,int);
-void merge(int[],int,int,int);
-void bitonicSort(int [],int,int,int);
-
-int main(){
-	int arr[8] = {3,7,4,8,6,2,1,5};
-	
-	//cout<<N<<"\n";
-	bitonicSort(arr,0,8,1);
-
-	for(int i = 0; i < 8; i++){
-		cout<<arr[i]<<" ";
-	}
-	return 0;
-}
 
 // Function to swap two elements if the first position is minimum
 void swap(int arr[],int pos1,int pos2){
@@ -25,10 +6,20 @@ void swap(int arr[],int pos1,int pos2){
 		arr[pos2] = temp;
 }
 
+void swap(int * a, int *b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 // Determines if which direction we should swap
 void verifyDirection(int arr[],int pos1,int pos2,int direction){
 	if (direction==(arr[pos1]>arr[pos2])) //if direction is 1 and (arr[pos1]>arr[pos2]) = 1 then swap
         swap(arr,pos1,pos2);
+}
+
+void verifyDirection(int * pos1, int * pos2, int direction) {
+	
 }
 
 // Function to merge array after sort
