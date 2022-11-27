@@ -3,6 +3,7 @@
 #include "helper.h"
 #include "bitonic_sorter.h"
 #include <thread>
+#include <chrono>
 
 using namespace std;
 
@@ -48,7 +49,6 @@ void merge(int arr[], unsigned int start, unsigned int size, unsigned int direct
 	}
 }
 
-
 // function to sort array
 void bitonicSort(int arr[], int size, int direction, int num_thread)
 {
@@ -60,7 +60,11 @@ void bitonicSort(int arr[], int size, int direction, int num_thread)
 	{
 		unsigned int threads = setThreads(num_thread);
 		unsigned int dir = setDirection(direction);
-		bitonicSortWrapper(arr,0, size, dir, &threads);
+		auto start_time = std::chrono::high_resolution_clock::now();
+		bitonicSortWrapper(arr, 0, size, dir, &threads);
+		auto end_time = std::chrono::high_resolution_clock::now();
+		auto elapsed_time = end_time - start_time;
+		std::cout << "Nano-seconds Elapsed Time: " << elapsed_time.count() << endl;
 	}
 }
 

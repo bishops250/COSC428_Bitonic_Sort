@@ -16,6 +16,9 @@ bitonic_sorter.o: bitonic_sorter.cpp bitonic_sorter.h helper.h constants.h
 helper.o: helper.cpp helper.h constants.h
 	$(CC) -c helper.cpp $(CFLAG)
 
+test.o: test.cpp test.h constants.helper
+	$(CC) -c test.cpp $(CFLAG)
+
 
 clean:
 # establishes clean command to rm

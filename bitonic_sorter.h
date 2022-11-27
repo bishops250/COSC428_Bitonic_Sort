@@ -10,8 +10,7 @@ void verifyDirection(int *pos1, int *pos2, int direction);
 void merge(int arr[], unsigned int start, unsigned int size, unsigned int direction, unsigned int *num_threads);
 
 // function to sort array
-void bitonicSort(int arr[],int size, int direction, int num_thread);
-
+void bitonicSort(int arr[], int size, int direction, int num_thread);
 
 void bitonicSortWrapper(int arr[], unsigned int start, unsigned int size, unsigned int direction, unsigned int *num_threads);
 
