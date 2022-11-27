@@ -1,7 +1,9 @@
 #include <iostream>
 #include "constants.h"
 #include "helper.h"
+#include "bitonic_sorter.h"
 #include <thread>
+
 using namespace std;
 
 void swap(int *a, int *b)
@@ -27,7 +29,7 @@ void merge(int arr[], unsigned int start, unsigned int size, unsigned int direct
 	{
 		int half = size / REQ_POW;
 		// For loop creates the bitonic sequence
-		for (int i = start; i < start + half; i++)
+		for (int unsigned i = start; i < start + half; i++)
 		{
 			verifyDirection(&arr[i], &arr[i + half], direction);
 		}
@@ -46,8 +48,9 @@ void merge(int arr[], unsigned int start, unsigned int size, unsigned int direct
 	}
 }
 
+
 // function to sort array
-void bitonicSort(int arr[], unsigned int size, unsigned int direction, int num_thread)
+void bitonicSort(int arr[], int size, int direction, int num_thread)
 {
 	if (!isValidSize(size))
 	{
@@ -57,7 +60,7 @@ void bitonicSort(int arr[], unsigned int size, unsigned int direction, int num_t
 	{
 		unsigned int threads = setThreads(num_thread);
 		unsigned int dir = setDirection(direction);
-		bitonicSortWrapper(arr, 0, size, dir, &threads);
+		bitonicSortWrapper(arr,0, size, dir, &threads);
 	}
 }
 

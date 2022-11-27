@@ -1,4 +1,5 @@
 #include "constants.h"
+#include "helper.h"
 #include <thread>
 #include <iostream>
 
@@ -28,11 +29,11 @@ unsigned int setThreads(int thread_count) {
     return use_threads;
 }
 
-bool isValidDirection(unsigned int direction) {
+bool isValidDirection(int direction) {
     return (direction == ASCENDING || direction == DESCENDING);
 }
 
-unsigned int setDirection(unsigned int direction) {
+unsigned int setDirection(int direction) {
     unsigned int dir;
     if (isValidDirection(direction)) {
         dir = direction;
@@ -40,10 +41,11 @@ unsigned int setDirection(unsigned int direction) {
     else {
         std::cout << "Invalid direction" << std::endl;
         std::cout << "Setting Direction: " << DESCENDING <<std::endl;
-        direction = DESCENDING;
+        dir = DESCENDING;
     }
+    return dir;
 }
 
-bool isValidSize(unsigned int size) {
-    return (size >= REQ_POW && size % REQ_POW == 1);
+bool isValidSize(int size) {
+    return (size >= REQ_POW && size % REQ_POW == 0);
 }
