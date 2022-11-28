@@ -60,9 +60,9 @@ void bitonicSort(int arr[], int size, int direction, int num_thread)
 	{
 		unsigned int threads = setThreads(num_thread);
 		unsigned int dir = setDirection(direction);
-		auto start_time = std::chrono::high_resolution_clock::now();
+		auto start_time = std::chrono::steady_clock::now();
 		bitonicSortWrapper(arr, 0, size, dir, &threads);
-		auto end_time = std::chrono::high_resolution_clock::now();
+		auto end_time = std::chrono::steady_clock::now();
 		auto elapsed_time = end_time - start_time;
 		std::cout << "Nano-seconds Elapsed Time: " << elapsed_time.count() << endl;
 	}

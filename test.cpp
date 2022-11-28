@@ -1,6 +1,7 @@
 #include "constants.h"
 #include "test.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 bool isSorted(int arr[], int size, int direction)
 {
@@ -50,4 +51,8 @@ int *generateArr(int size, bool max_range, int min, int max)
         }
     }
     return rand_arr;
+}
+
+void func3() {
+    
 }
